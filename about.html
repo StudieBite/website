@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - StudieBite | Our Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366f1;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 32px;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .story-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .story-text h2 {
+            font-size: 2.5rem;
+            color: #1a202c;
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .story-text h3 {
+            font-size: 1.5rem;
+            color: #6366f1;
+            margin: 32px 0 16px 0;
+            font-weight: 600;
+        }
+
+        .story-text p {
+            margin-bottom: 24px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #6366f1;
+            margin: 32px 0;
+            font-style: italic;
+            font-weight: 500;
+            color: #1a202c;
+        }
+
+        .founder-card {
+            background: #f8fafc;
+            padding: 32px;
+            border-radius: 20px;
+            text-align: center;
+            position: sticky;
+            top: 120px;
+        }
+
+        .founder-image {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .founder-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .founder-title {
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .founder-bio {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(99, 102, 241, 0.05);
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            display: block;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .values h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .values-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a202c;
+        }
+
+        .value-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            text-align: center;
+        }
+
+        .impact h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .impact p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .impact-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .impact-stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            display: block;
+        }
+
+        .impact-stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #6366f1;
+            border: 2px solid #6366f1;
+        }
+
+        .btn-secondary:hover {
+            background: #6366f1;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .founder-card {
+                position: static;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span>🍕</span>
+                    <span>StudieBite</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="index.html#survey">Survey</a>
+                    <a href="index.html#contact">Contact</a>
+                    <a href="mailto:hello@studiebite.com" class="btn">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    The Story Behind StudieBite
+                </div>
+                
+                <h1>
+                    From Struggling Student to <br>
+                    <span class="gradient-text">Student Champion</span>
+                </h1>
+                
+                <p>
+                    Every great solution starts with someone who truly understands the problem. 
+                    This is the story of how late-night study sessions, empty fridges, and the 
+                    struggle to balance work and academics sparked a revolution in campus dining.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>From Medical Dreams to Digital Reality</h2>
+                    
+                    <p>It was 2:17 AM on a Tuesday in November 2023. A 20-year-old student sat alone in the university library, surrounded by ICT textbooks, empty coffee cups, and the weight of a completely different future than he'd imagined just months before. His stomach growled loudly enough to earn disapproving looks from fellow night-owl students.</p>
+                    
+                    <p>This wasn't his first time in this position. Just a year earlier, he'd been here studying medical textbooks, dreaming of becoming a surgeon. But life had other plans.</p>
+                    
+                    <h3>💔 The Dream That Almost Was</h3>
+                    
+                    <p>At 19, our founder had applied for HBO with one clear goal: become a surgeon. He'd worked tirelessly to get accepted, imagining a future saving lives in operating rooms. But reality hit hard when he started his medical studies.</p>
+                    
+                    <p>The financial pressure was crushing. Textbooks cost hundreds of euros. Living expenses piled up. His part-time job paid just enough to survive, but not enough to thrive academically. <strong>The choice became brutal: work more hours to afford his education, or study more to succeed in his education.</strong> He couldn't do both.</p>
+                    
+                    <p>Mid-year 2023, he made the hardest decision of his young life: <em>drop out</em>. The boy who dreamed of saving lives was defeated by the very system meant to train him.</p>
+                    
+                    <h3>🔄 Second Chances and New Visions</h3>
+                    
+                    <p>But he didn't give up. A year later, he tried again—this time with a new vision. ICT and business felt more practical, more achievable. Maybe he couldn't save lives with surgery, but he could build something that mattered.</p>
+                    
+                    <p>Yet here he was again: same library, same late nights, same impossible choice between work and studies. The financial pressure was identical. The stress was familiar. <strong>Nothing had changed except his major.</strong></p>
+                    
+                    <div class="highlight">
+                        "I looked around that library at 2 AM and saw dozens of students in the exact same situation. We were all choosing between our health and our grades, between eating and succeeding. But this time, instead of just accepting it, I thought: 'Next year when I come back, this HAS to be different.'"
+                    </div>
+                    
+                    <h3>💡 The Lightbulb Moment</h3>
+                    
+                    <p>That night in November 2023, facing his second potential dropout, our founder made a promise to himself: <em>If I have to leave school again because of money, I'm going to create a solution so this never happens to me—or anyone else—again.</em></p>
+                    
+                    <p>He realized the problem wasn't just his—it was systemic. Students everywhere were choosing between work and studies, between basic needs and academic success. What if there was a way to create flexible work that actually supported student life instead of competing with it?</p>
+                    
+                    <h3>🎓 The Student Struggle is Personal</h3>
+                    
+                    <p>Our founder understood the reality of student life because he'd lived it twice, failed at it twice, and refused to accept defeat a third time:</p>
+                    
+                    <p><strong>The 10-minute gap between classes</strong> where you're supposed to eat, but you're really just running across campus with a granola bar in your mouth—he'd done this rushing between medical lectures, then again rushing between ICT classes.</p>
+                    
+                    <p><strong>The dining hall hours</strong> that mysteriously never align with your schedule, closing right when you need dinner most—he'd experienced this frustration twice, across two different majors.</p>
+                    
+                    <p><strong>The delivery apps</strong> that charge €8 in fees for a €12 meal, making it financially impossible for most students—especially painful when you're already working just to afford textbooks.</p>
+                    
+                    <p><strong>The work-study jobs</strong> that pay minimum wage but expect maximum flexibility, leaving you choosing between income and study time—the choice that had forced him out of school not once, but twice.</p>
+                    
+                    <h3>� From Dropout to Founder</h3>
+                    
+                    <p>Instead of dropping out a second time, our founder made a different choice. He started building StudieBite during those late-night study sessions in 2023. Every frustrating moment became fuel for the solution.</p>
+                    
+                    <p>He began small—creating a WhatsApp group with fellow struggling students, offering a simple service: he'd pick up food from the dining hall and deliver it anywhere on campus for €2. <strong>It wasn't just a business idea; it was a survival strategy.</strong></p>
+                    
+                    <p>Within a week, he had 50 requests. Students were desperate for this solution because they were living the same nightmare he'd experienced twice.</p>
+                    
+                    <h3>❤️ Students Helping Students</h3>
+                    
+                    <p>But the real magic happened when other students wanted to help. They understood each other's schedules, exam periods, and financial constraints in ways that no corporate delivery service ever could.</p>
+                    
+                    <p>A fellow ICT student started doing morning coffee runs between his programming classes. A business major began delivering dinner to the library during her evening study sessions. Students coordinated orders from multiple people in the same dorm, making deliveries more efficient and affordable.</p>
+                    
+                    <p><strong>This wasn't just about food delivery—it was about students taking care of students.</strong> Our founder had found a way to create work that supported education instead of competing with it.</p>
+                    
+                    <div class="highlight">
+                        "I realized I wasn't just building a delivery app. I was creating a support system that understood the unique challenges of student life. Every late-night delivery to the library, every meal coordinated around someone's exam schedule, every student earning flexible income while helping their peers—that's students taking care of students."
+                    </div>
+                    
+                    <h3>🎯 The Promise Kept</h3>
+                    
+                    <p>True to his word, when our founder returned to university the following year, things were different. StudieBite was ready. The solution he'd built during his second struggle was now helping him and hundreds of other students succeed academically without sacrificing their basic needs.</p>
+                    
+                    <p>What started as a personal survival strategy had become a movement. From a 20-year-old who nearly dropped out twice to a founder creating opportunities for thousands of students across Dutch universities—proving that sometimes the best solutions come from those who've lived the problem most deeply.</p>
+                </div>
+                
+                <div class="founder-card">
+                    <div class="founder-image">
+                        �‍🎓
+                    </div>
+                    <div class="founder-name">Our Founder</div>
+                    <div class="founder-title">CEO • Current Student</div>
+                    <div class="founder-bio">
+                        <strong>21-year-old ICT & Business student</strong> who nearly dropped out twice before creating StudieBite. Started with medical dreams at 19, faced financial pressure, dropped out, tried again with ICT, and instead of giving up a second time, built the solution. Now juggling his studies while running a company that ensures no student faces the same impossible choices he did.
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Near Dropouts</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">3rd</span>
+                            <span class="stat-label">Time's the Charm</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">ICT</span>
+                            <span class="stat-label">Current Major</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Determination</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2>Our Values</h2>
+            <p class="values-subtitle">
+                Born from real student experiences, shaped by genuine understanding of campus life
+            </p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">Students First, Always</h3>
+                    <p class="value-description">
+                        Every decision we make prioritizes student success, student financial wellbeing, and student community. We're not just serving students—we're built by students, for students.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">💪</div>
+                    <h3 class="value-title">Empathy Through Experience</h3>
+                    <p class="value-description">
+                        We understand late-night study sessions, exam stress, and tight budgets because we live them. Our solutions come from real experience, not market research.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3 class="value-title">Sustainable Success</h3>
+                    <p class="value-description">
+                        We create opportunities that work with student schedules, support academic goals, and build long-term community rather than exploiting short-term needs.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3 class="value-title">Purpose-Driven Innovation</h3>
+                    <p class="value-description">
+                        Every feature, every partnership, every expansion is guided by one question: "Does this genuinely make student life better?"
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🏠</div>
+                    <h3 class="value-title">Community Over Competition</h3>
+                    <p class="value-description">
+                        We're building a supportive ecosystem where students help students succeed, not a platform that pits workers against customers.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">📚</div>
+                    <h3 class="value-title">Academic Integration</h3>
+                    <p class="value-description">
+                        We work around your education, not despite it. From exam period support to class schedule coordination, academics always come first.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="container">
+            <h2>The Impact We're Building</h2>
+            <p>
+                From one struggling student to a movement that will transform campus life across Dutch universities. 
+                Here's the change we're committed to creating, one campus at a time.
+            </p>
+            
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <span class="impact-stat-number">35+</span>
+                    <span class="impact-stat-label">Student Jobs Per Campus</span>
+                </div>
+                <div class="impact-stat">
+                    <span class="impact-stat-number">€10-18</span>
+                    <span class="impact-stat-label">Hourly Wage</span>
+                </div>
+                <div class="impact-stat">
+                    <span class="impact-stat-number">15min</span>
+                    <span class="impact-stat-label">Max Delivery Time</span>
+                </div>
+                <div class="impact-stat">
+                    <span class="impact-stat-number">100%</span>
+                    <span class="impact-stat-label">Student-Centered</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join Our Story</h2>
+            <p>
+                Our founder's 2 AM revelation is becoming a reality, but we need your voice to make it happen. 
+                Help us understand your campus, your struggles, and your dreams.
+            </p>
+            <div class="cta-buttons">
+                <a href="index.html#survey" class="btn">Share Your Experience</a>
+                <a href="mailto:hello@studiebite.com" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <span>🍕</span>
+                <span>StudieBite</span>
+            </div>
+            <p>Food delivered by students, for students. Creating jobs, building community, revolutionizing campus dining.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="index.html#survey">Survey</a>
+                <a href="mailto:jobs@studiebite.com">Jobs</a>
+                <a href="mailto:hello@studiebite.com">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 StudieBite. Coming to Dutch universities Fall 2025.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navigation background change on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.value-card, .founder-card, .impact-stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
